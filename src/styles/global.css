@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cuero-dark: #38271F;
+  --color-cuero-brown: #76513B;
+  --color-cuero-beige: #D9C6A5;
+  --color-cuero-cream: #F7F2E9;
+  --color-cuero-terracotta: #A6533C;
+  
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F7F2E9;
+  color: #38271F;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #76513B;
+  color: #F7F2E9;
+}

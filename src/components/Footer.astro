@@ -1,0 +1,97 @@
+---
+import { WHATSAPP_DISPLAY, FACEBOOK_URL, getGeneralWhatsAppUrl } from '../data/products.js';
+
+const generalWhatsAppUrl = getGeneralWhatsAppUrl();
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#38271F] text-[#F7F2E9] border-t border-[#D9C6A5]/20 pt-16 pb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#D9C6A5]/20">
+      
+      <!-- Brand Info -->
+      <div class="md:col-span-5 space-y-4">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-[#76513B] flex items-center justify-center text-[#D9C6A5] font-serif font-bold text-base">
+            M
+          </div>
+          <span class="font-serif text-xl font-bold tracking-tight text-[#F7F2E9]">
+            Montanares Todo Cuero
+          </span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-[#F7F2E9]/75 max-w-sm leading-relaxed">
+          Artesanía y tradición en marroquinería de cuero genuino. Productos hechos con dedicación para acompañarte toda la vida.
+        </p>
+
+        <div class="flex items-center gap-3 pt-2">
+          <a
+            href={FACEBOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 rounded-lg bg-[#76513B]/40 hover:bg-[#76513B] text-[#D9C6A5] hover:text-white flex items-center justify-center transition-colors"
+            aria-label="Perfil oficial de Facebook de Montanares Todo Cuero"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+
+          <a
+            href={generalWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 rounded-lg bg-[#76513B]/40 hover:bg-[#76513B] text-[#D9C6A5] hover:text-white flex items-center justify-center transition-colors"
+            aria-label="WhatsApp de Montanares Todo Cuero"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="md:col-span-3 space-y-3">
+        <h4 class="font-serif text-sm font-semibold uppercase tracking-wider text-[#D9C6A5]">
+          Navegación
+        </h4>
+        <ul class="space-y-2 text-xs text-[#F7F2E9]/80">
+          <li><a href="#inicio" class="hover:text-[#D9C6A5] transition-colors">Inicio</a></li>
+          <li><a href="#productos" class="hover:text-[#D9C6A5] transition-colors">Catálogo de Productos</a></li>
+          <li><a href="#nosotros" class="hover:text-[#D9C6A5] transition-colors">El Taller & Nosotros</a></li>
+          <li><a href="#galeria" class="hover:text-[#D9C6A5] transition-colors">Galería de Acabados</a></li>
+          <li><a href="#testimonios" class="hover:text-[#D9C6A5] transition-colors">Testimonios</a></li>
+          <li><a href="#contacto" class="hover:text-[#D9C6A5] transition-colors">Contacto Directo</a></li>
+        </ul>
+      </div>
+
+      <!-- Attention & Dispatches -->
+      <div class="md:col-span-4 space-y-3">
+        <h4 class="font-serif text-sm font-semibold uppercase tracking-wider text-[#D9C6A5]">
+          Atención y Despachos
+        </h4>
+        <div class="space-y-2 text-xs text-[#F7F2E9]/80">
+          <p><strong class="text-[#F7F2E9]">WhatsApp Oficial:</strong> {WHATSAPP_DISPLAY}</p>
+          <p><strong class="text-[#F7F2E9]">Despachos:</strong> Envíos coordinados a Santiago y todas las regiones de Chile.</p>
+          <p><strong class="text-[#F7F2E9]">Pedidos:</strong> Ventas minoristas y confección por encargo.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F7F2E9]/60">
+      <p>© {currentYear} Montanares Todo Cuero. Todos los derechos reservados.</p>
+      
+      <a href="#inicio" class="flex items-center gap-1.5 hover:text-[#D9C6A5] transition-colors cursor-pointer">
+        <span>Volver arriba</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="19" x2="12" y2="5"></line>
+          <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</footer>

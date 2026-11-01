@@ -1,0 +1,110 @@
+---
+import { getGeneralWhatsAppUrl } from '../data/products.js';
+
+const whatsappUrl = getGeneralWhatsAppUrl();
+---
+
+<section id="inicio" class="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      
+      <!-- Left Column: Editorial Headline & Actions -->
+      <div class="lg:col-span-6 flex flex-col justify-center space-y-6">
+        
+        <div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#76513B]">
+          <span>Marroquinería Artesanal</span>
+          <span aria-hidden="true">·</span>
+          <span>Chile</span>
+          <span aria-hidden="true">·</span>
+          <span>100% Cuero Genuino</span>
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#38271F] leading-[1.12] [text-wrap:balance]">
+          Tradición y estilo en cada pieza
+        </h1>
+
+        <p class="text-base sm:text-lg text-[#38271F]/80 leading-relaxed max-w-xl">
+          Descubre productos con carácter, detalles únicos y esencia artesanal. Confeccionamos piezas diseñadas para resistir el paso del tiempo con la nobleza del cuero auténtico.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <a
+            href="#productos"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#38271F] hover:bg-[#76513B] text-[#F7F2E9] rounded-lg text-sm font-medium tracking-wide transition-all shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap shrink-0 group"
+          >
+            <span>Explorar productos</span>
+            <svg class="w-4 h-4 text-[#D9C6A5] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="7" x2="17" y2="17"></line>
+              <polyline points="17 7 17 17 7 17"></polyline>
+            </svg>
+          </a>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#76513B]/40 hover:border-[#76513B] bg-[#F7F2E9] hover:bg-[#D9C6A5]/20 text-[#38271F] rounded-lg text-sm font-medium transition-all shadow-2xs active:scale-95 whitespace-nowrap shrink-0"
+          >
+            <svg class="w-4 h-4 text-[#76513B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+            </svg>
+            <span>Contactar por WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="pt-6 border-t border-[#D9C6A5]/40 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-[#38271F]/85">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#76513B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span class="font-medium">Cuero vacuno genuino</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#76513B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+            <span class="font-medium">Terminaciones a mano</span>
+          </div>
+          <div class="flex items-center gap-2 col-span-2 sm:col-span-1">
+            <svg class="w-4 h-4 text-[#76513B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+            <span class="font-medium">Envíos a todo Chile</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Visual Showcase -->
+      <div class="lg:col-span-6 relative">
+        <div class="relative rounded-2xl overflow-hidden border border-[#D9C6A5]/50 shadow-xl bg-[#38271F]/5 group">
+          <img
+            src="/src/assets/images/hero_leather_craft_1793558229126.jpg"
+            alt="Colección artesanal Montanares Todo Cuero"
+            class="w-full h-auto object-cover aspect-16/10 sm:aspect-4/3 lg:aspect-5/4 group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+            referrerpolicy="no-referrer"
+            loading="eager"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#38271F]/80 via-transparent to-transparent opacity-60"></div>
+          
+          <div class="absolute bottom-4 left-4 right-4 text-[#F7F2E9] text-xs flex justify-between items-end backdrop-blur-xs bg-[#38271F]/40 p-3 rounded-lg border border-white/10">
+            <div>
+              <p class="font-serif font-semibold text-sm">Colección Taller Montanares</p>
+              <p class="text-[#D9C6A5] text-[11px]">Materiales nobles, costuras resistentes y durabilidad</p>
+            </div>
+            <span class="text-[11px] text-[#D9C6A5] hidden sm:inline-block">Hecho a mano</span>
+          </div>
+        </div>
+
+        <div aria-hidden="true" class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D9C6A5]/25 rounded-full blur-2xl -z-10 pointer-events-none"></div>
+      </div>
+
+    </div>
+  </div>
+</section>

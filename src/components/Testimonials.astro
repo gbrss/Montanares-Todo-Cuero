@@ -1,0 +1,49 @@
+---
+import { TESTIMONIALS } from '../data/products.js';
+---
+
+<section id="testimonios" class="py-16 md:py-24 bg-[#D9C6A5]/20 border-t border-[#D9C6A5]/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#76513B] mb-2">
+        <span>Experiencias Reales</span>
+        <span aria-hidden="true">·</span>
+        <span>Clientes Satisfechos</span>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#38271F] [text-wrap:balance]">
+        La Calidad que Acompaña
+      </h2>
+      <p class="mt-3 text-sm sm:text-base text-[#38271F]/80 leading-relaxed">
+        Opiniones de quienes ya disfrutan de nuestras piezas de cuero en su día a día.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {TESTIMONIALS.map((t) => (
+        <div class="bg-[#F7F2E9] p-6 sm:p-7 rounded-xl border border-[#D9C6A5]/60 shadow-xs flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <svg class="w-6 h-6 text-[#76513B]/40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="text-sm text-[#38271F]/90 leading-relaxed italic">
+              "{t.text}"
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-[#D9C6A5]/40">
+            <h3 class="font-serif font-bold text-sm text-[#38271F]">
+              {t.name}
+            </h3>
+            <div class="flex items-center gap-2 text-xs text-[#76513B] mt-0.5">
+              <span>{t.location}</span>
+              <span aria-hidden="true">·</span>
+              <span>{t.productConsulted}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

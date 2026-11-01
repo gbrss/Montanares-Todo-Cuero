@@ -1,0 +1,126 @@
+---
+import { getGeneralWhatsAppUrl } from '../data/products.js';
+
+const whatsappUrl = getGeneralWhatsAppUrl();
+---
+
+<header class="sticky top-0 z-40 bg-[#F7F2E9]/95 backdrop-blur-md border-b border-[#D9C6A5]/40 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between gap-8 h-20">
+      
+      <!-- Zone 1: Brand Wordmark -->
+      <a 
+        href="#inicio" 
+        class="flex items-center gap-2 group whitespace-nowrap shrink-0"
+        aria-label="Montanares Todo Cuero - Inicio"
+      >
+        <div class="w-9 h-9 rounded-full bg-[#38271F] flex items-center justify-center text-[#D9C6A5] font-serif font-bold text-lg shadow-xs group-hover:bg-[#76513B] transition-colors">
+          M
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#38271F] group-hover:text-[#76513B] transition-colors">
+            Montanares Todo Cuero
+          </span>
+        </div>
+      </a>
+
+      <!-- Zone 2: Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#38271F]/80">
+        <a href="#inicio" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Inicio</a>
+        <a href="#productos" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Productos</a>
+        <a href="#nosotros" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Nosotros</a>
+        <a href="#galeria" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Galería</a>
+        <a href="#testimonios" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Testimonios</a>
+        <a href="#contacto" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Contacto</a>
+      </nav>
+
+      <!-- Zone 3: Primary Action -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 bg-[#38271F] hover:bg-[#76513B] text-[#F7F2E9] rounded-lg text-xs md:text-sm font-medium tracking-wide transition-all shadow-xs hover:shadow-md active:scale-95 whitespace-nowrap shrink-0"
+        >
+          <svg class="w-4 h-4 text-[#D9C6A5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+          </svg>
+          <span>Consultar por WhatsApp</span>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          class="md:hidden p-2 rounded-lg text-[#38271F] hover:bg-[#D9C6A5]/20 focus:outline-hidden focus:ring-2 focus:ring-[#76513B]"
+          aria-label="Abrir menú"
+        >
+          <svg class="w-6 h-6" id="menu-icon-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+          <svg class="w-6 h-6 hidden" id="menu-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" x2="6" y1="6" y2="18"></line>
+            <line x1="6" x2="18" y1="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-[#D9C6A5]/40 bg-[#F7F2E9] px-4 pt-3 pb-6 space-y-3 shadow-lg">
+    <nav class="flex flex-col space-y-2">
+      <a href="#inicio" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Inicio</a>
+      <a href="#productos" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Productos</a>
+      <a href="#nosotros" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Nosotros</a>
+      <a href="#galeria" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Galería</a>
+      <a href="#testimonios" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Testimonios</a>
+      <a href="#contacto" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Contacto</a>
+    </nav>
+    <div class="pt-2">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#38271F] text-[#F7F2E9] rounded-lg text-sm font-medium hover:bg-[#76513B] transition-colors"
+      >
+        <svg class="w-5 h-5 text-[#D9C6A5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+        </svg>
+        <span>Consultar por WhatsApp (+56 9 2704 7529)</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconBars = document.getElementById('menu-icon-bars');
+  const iconClose = document.getElementById('menu-icon-close');
+  const links = document.querySelectorAll('.mobile-nav-link');
+
+  function toggleMenu() {
+    if (!menu) return;
+    const isHidden = menu.classList.contains('hidden');
+    if (isHidden) {
+      menu.classList.remove('hidden');
+      iconBars?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+    } else {
+      menu.classList.add('hidden');
+      iconBars?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+    }
+  }
+
+  toggleBtn?.addEventListener('click', toggleMenu);
+  links.forEach(l => l.addEventListener('click', () => {
+    menu?.classList.add('hidden');
+    iconBars?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+  }));
+</script>

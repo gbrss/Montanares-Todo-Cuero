@@ -1,0 +1,6 @@
+{
+  "name": "Montanares Todo Cuero",
+  "description": "Landing page comercial y catálogo de marroquinería artesanal en cuero genuino para Montanares Todo Cuero, con consulta directa por WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

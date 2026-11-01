@@ -1,0 +1,100 @@
+---
+import { getProductWhatsAppUrl } from '../data/products.js';
+
+interface Props {
+  product: {
+    id: string;
+    name: string;
+    category: string;
+    description: string;
+    image: string;
+    badge: string;
+    features: string[];
+    dimensions?: string;
+    material: string;
+  };
+}
+
+const { product } = Astro.props;
+const whatsappUrl = getProductWhatsAppUrl(product.name);
+---
+
+<article 
+  class="group flex flex-col bg-[#F7F2E9] rounded-xl border border-[#D9C6A5]/50 overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+  data-category={product.category}
+>
+  <!-- Image slot -->
+  <div 
+    class="relative aspect-4/3 overflow-hidden bg-[#38271F]/5 cursor-pointer product-card-trigger"
+    data-product-id={product.id}
+  >
+    <img
+      src={product.image}
+      alt={product.name}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+      referrerpolicy="no-referrer"
+      loading="lazy"
+    />
+
+    <div class="absolute inset-0 bg-[#38271F]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#F7F2E9]/90 text-[#38271F] rounded-md text-xs font-medium shadow-xs backdrop-blur-xs">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+        <span>Ver detalles</span>
+      </span>
+    </div>
+
+    <span class="absolute top-3 left-3 px-2.5 py-1 text-[11px] font-medium tracking-wide bg-[#38271F]/80 text-[#F7F2E9] rounded backdrop-blur-xs">
+      {product.badge}
+    </span>
+  </div>
+
+  <!-- Content -->
+  <div class="p-5 flex flex-col flex-1 justify-between space-y-4">
+    <div class="space-y-1.5">
+      <div class="flex items-center gap-2 text-xs text-[#76513B] font-medium">
+        <span>{product.category}</span>
+        <span aria-hidden="true">·</span>
+        <span>Artesanal</span>
+      </div>
+
+      <h3 
+        class="font-serif text-lg font-bold text-[#38271F] group-hover:text-[#76513B] transition-colors cursor-pointer line-clamp-1 product-card-trigger"
+        data-product-id={product.id}
+      >
+        {product.name}
+      </h3>
+
+      <p class="text-xs text-[#38271F]/80 line-clamp-2 leading-relaxed">
+        {product.description}
+      </p>
+    </div>
+
+    <!-- Actions -->
+    <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-[#38271F] hover:bg-[#76513B] text-[#F7F2E9] rounded-lg text-xs font-medium transition-colors shadow-2xs whitespace-nowrap active:scale-95"
+        aria-label={`Consultar disponibilidad de ${product.name} por WhatsApp`}
+      >
+        <svg class="w-3.5 h-3.5 text-[#D9C6A5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+        </svg>
+        <span>Consultar disponibilidad</span>
+      </a>
+
+      <button
+        type="button"
+        class="px-3 py-2.5 border border-[#D9C6A5] hover:bg-[#D9C6A5]/25 text-[#38271F] rounded-lg text-xs font-medium transition-colors product-card-trigger cursor-pointer"
+        data-product-id={product.id}
+        title="Ver especificaciones y medidas"
+      >
+        Detalles
+      </button>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,114 @@
+---
+// About.astro
+---
+
+<section id="nosotros" class="py-16 md:py-24 bg-[#38271F] text-[#F7F2E9] relative overflow-hidden">
+  <div aria-hidden="true" class="absolute top-0 right-0 w-96 h-96 bg-[#76513B]/20 rounded-full blur-3xl pointer-events-none"></div>
+  <div aria-hidden="true" class="absolute bottom-0 left-0 w-96 h-96 bg-[#A6533C]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Visual Focus -->
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="relative rounded-2xl overflow-hidden border border-[#D9C6A5]/30 shadow-2xl bg-black/20 group">
+          <img
+            src="/src/assets/images/gallery_leather_stitch_detail_1793558232652.jpg"
+            alt="Detalle de costura a mano en cuero auténtico Montanares Todo Cuero"
+            class="w-full h-full aspect-4/3 sm:aspect-5/4 object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            referrerpolicy="no-referrer"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#38271F]/80 via-transparent to-transparent"></div>
+          
+          <div class="absolute bottom-4 left-4 right-4 bg-[#38271F]/70 backdrop-blur-xs p-3.5 rounded-xl border border-[#D9C6A5]/20">
+            <p class="font-serif text-sm font-semibold text-[#D9C6A5]">
+              Puntada por puntada
+            </p>
+            <p class="text-xs text-[#F7F2E9]/80 mt-0.5">
+              Costuras resistentes confeccionadas con hilo encerado y técnicas tradicionales que garantizan máxima durabilidad.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Content -->
+      <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#D9C6A5]">
+          <span>Tradición & Taller</span>
+          <span aria-hidden="true">·</span>
+          <span>Nuestra Historia</span>
+        </div>
+
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#F7F2E9] leading-tight [text-wrap:balance]">
+          El valor de lo hecho con dedicación
+        </h2>
+
+        <p class="text-base sm:text-lg text-[#F7F2E9]/90 leading-relaxed">
+          En Montanares Todo Cuero valoramos los detalles, los materiales nobles y la belleza de los productos que perduran en el tiempo. Descubre nuestra colección y encuentra esa pieza especial que combina estilo, funcionalidad y personalidad.
+        </p>
+
+        <p class="text-sm sm:text-base text-[#F7F2E9]/75 leading-relaxed">
+          Cada creación nace de la pasión por la talabartería y la marroquinería tradicional. No fabricamos en masa: seleccionamos cuidadosamente el grano del cuero, respetamos sus vetas naturales y aplicamos acabados artesanales que enriquecen su carácter con el uso cotidiano.
+        </p>
+
+        <!-- Values Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#D9C6A5]/20">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 text-[#D9C6A5] font-semibold text-sm">
+              <svg class="w-4 h-4 text-[#D9C6A5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <h4>Materiales Nobles</h4>
+            </div>
+            <p class="text-xs text-[#F7F2E9]/70">
+              Cuero genuino vacuno que envejece con gracia, ganando pátina y suavidad con los años.
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 text-[#D9C6A5] font-semibold text-sm">
+              <svg class="w-4 h-4 text-[#D9C6A5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"></path>
+                <path d="M17.64 15 22 10.64"></path>
+                <path d="m20.91 3.26-2.17-2.17a2.12 2.12 0 0 0-3 0L13.5 3.33l5.17 5.17 2.24-2.24c.83-.83.83-2.17 0-3Z"></path>
+              </svg>
+              <h4>Trabajo Manual</h4>
+            </div>
+            <p class="text-xs text-[#F7F2E9]/70">
+              Corte, biselado de cantos, bruñido y costuras elaboradas con el esmero de un artesano.
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 text-[#D9C6A5] font-semibold text-sm">
+              <svg class="w-4 h-4 text-[#D9C6A5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <h4>Durabilidad Real</h4>
+            </div>
+            <p class="text-xs text-[#F7F2E9]/70">
+              Herrajes sólidos y uniones concebidas para acompañarte durante décadas.
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 text-[#D9C6A5] font-semibold text-sm">
+              <svg class="w-4 h-4 text-[#D9C6A5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+              <h4>Envíos a Todo Chile</h4>
+            </div>
+            <p class="text-xs text-[#F7F2E9]/70">
+              Coordinación personalizada por WhatsApp y envíos seguros a cualquier región.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
