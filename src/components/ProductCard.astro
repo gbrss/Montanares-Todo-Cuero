@@ -1,5 +1,6 @@
 ---
 import { getProductWhatsAppUrl } from '../data/products.js';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
   product: {
@@ -7,7 +8,7 @@ interface Props {
     name: string;
     category: string;
     description: string;
-    image: string;
+    image: ImageMetadata; // Tipo correcto para imágenes importadas en Astro
     badge: string;
     features: string[];
     dimensions?: string;
@@ -29,7 +30,7 @@ const whatsappUrl = getProductWhatsAppUrl(product.name);
     data-product-id={product.id}
   >
     <img
-      src={product.image}
+      src={product.image.src}
       alt={product.name}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
       referrerpolicy="no-referrer"
