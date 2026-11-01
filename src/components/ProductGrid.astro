@@ -94,7 +94,7 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
       <button
         type="button"
         id="modal-close-btn"
-        class="absolute top-4 right-4 p-2 rounded-full text-[#38271F]/70 hover:text-[#38271F] hover:bg-[#D9C6A5]/30 transition-colors"
+        class="absolute top-4 right-4 p-2 rounded-full text-[#38271F]/70 hover:text-[#38271F] hover:bg-[#D9C6A5]/30 transition-colors z-10"
         aria-label="Cerrar modal"
       >
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -104,14 +104,18 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
       </button>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        <div class="rounded-xl overflow-hidden border border-[#D9C6A5]/60 bg-white">
+        <div class="rounded-xl overflow-hidden border border-[#D9C6A5]/60 bg-white group cursor-zoom-in relative">
+          
+          <!-- IMAGEN CON EFECTO DE ZOOM Y MOVIMIENTO -->
           <img
             id="modal-image"
             src=""
             alt=""
-            class="w-full h-full aspect-4/3 object-cover"
+            class="w-full h-full aspect-4/3 object-cover transition-transform duration-700 ease-out group-hover:scale-125"
             referrerpolicy="no-referrer"
+            title="Haz clic para ampliar"
           />
+
         </div>
 
         <div class="space-y-4">
@@ -208,13 +212,18 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     const product = products.find((p) => p.id === productId);
     if (!product || !modal) return;
 
-    modalImg.src = product.image;
+    modalImg.src = product.image.src;
     modalImg.alt = product.name;
     modalCategory.textContent = product.category;
     modalTitle.textContent = product.name;
     modalDesc.textContent = product.description;
     modalMaterial.textContent = product.material;
     modalDim.textContent = product.dimensions || 'Estándar';
+
+    // FUNCIÓN DE ZOOM: Al hacer clic en la imagen, se abre en tamaño original
+    modalImg.onclick = () => {
+      window.open(product.image.src, '_blank');
+    };
 
     modalFeatures.innerHTML = '';
     product.features.forEach((feat) => {
