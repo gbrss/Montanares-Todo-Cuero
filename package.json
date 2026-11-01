@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev --host 0.0.0.0 --port 3000",
     "build": "astro build",
-    "postbuild": "node -e \"const fs=require('fs'); const p='.wrangler/deploy/config.json'; if(fs.existsSync(p)) fs.rmSync(p); if(fs.existsSync('dist/client')) { fs.cpSync('dist/client', 'dist', {recursive:true}); console.log('✓ client hoisted'); } fs.writeFileSync('dist/_worker.js', 'export { default } from \\\"./server/entry.mjs\\\";'); console.log('✓ _worker.js created'); if(fs.existsSync('dist/client/_astro')) { fs.cpSync('dist/client/_astro', 'dist/_astro', {recursive:true}); console.log('✓ _astro folder ensured'); } console.log('✓ postbuild done');\""
+    "postbuild": "node -e \"const fs=require('fs'); const p='.wrangler/deploy/config.json'; if(fs.existsSync(p)) fs.rmSync(p); if(fs.existsSync('dist/client')) { fs.cpSync('dist/client', 'dist', {recursive:true}); console.log('✓ client hoisted'); } fs.writeFileSync('dist/_worker.js', 'export { default } from \\\"./server/entry.mjs\\\";'); console.log('✓ _worker.js created'); if(fs.existsSync('dist/client/_astro')) { fs.cpSync('dist/client/_astro', 'dist/_astro', {recursive:true}); console.log('✓ _astro folder ensured'); } console.log('✓ postbuild done');\"",
     "preview": "astro preview --host 0.0.0.0 --port 3000",
     "start": "node ./dist/server/entry.mjs",
     "clean": "rm -rf dist .astro",
