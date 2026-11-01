@@ -28,7 +28,7 @@ import { GALLERY_ITEMS } from '../data/products.js';
           class="gallery-trigger group relative rounded-xl overflow-hidden border border-[#D9C6A5]/50 bg-[#38271F]/5 cursor-pointer shadow-2xs hover:shadow-lg transition-all duration-300"
         >
           <img
-            src={item.image}
+            src={item.image.src}
             alt={item.title}
             class="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             referrerpolicy="no-referrer"
@@ -135,7 +135,9 @@ import { GALLERY_ITEMS } from '../data/products.js';
     if (index === null || index < 0 || index >= items.length) return;
     currentIndex = index;
     const item = items[index];
-    lightboxImg.src = item.image;
+    
+    // IMPORTANTE: Usamos item.image.src para el lightbox
+    lightboxImg.src = item.image.src;
     lightboxImg.alt = item.title;
     lightboxTitle.textContent = item.title;
     lightboxSubtitle.textContent = item.subtitle;

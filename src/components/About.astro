@@ -1,5 +1,6 @@
 ---
 // About.astro
+import imgGalleryStitch from '../assets/images/gallery_leather_stitch_detail_1793558232652.jpg';
 ---
 
 <section id="nosotros" class="py-16 md:py-24 bg-[#38271F] text-[#F7F2E9] relative overflow-hidden">
@@ -13,7 +14,7 @@
       <div class="lg:col-span-5 order-2 lg:order-1">
         <div class="relative rounded-2xl overflow-hidden border border-[#D9C6A5]/30 shadow-2xl bg-black/20 group">
           <img
-            src="/src/assets/images/gallery_leather_stitch_detail_1793558232652.jpg"
+            src={imgGalleryStitch.src}
             alt="Detalle de costura a mano en cuero auténtico Montanares Todo Cuero"
             class="w-full h-full aspect-4/3 sm:aspect-5/4 object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             referrerpolicy="no-referrer"
