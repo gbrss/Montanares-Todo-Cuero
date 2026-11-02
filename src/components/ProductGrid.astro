@@ -13,20 +13,20 @@ const CATEGORIES = [
 const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gustaría consultar por un trabajo personalizado o encargo especial en cuero.');
 ---
 
-<section id="productos" class="py-16 md:py-24 bg-[#F7F2E9] border-t border-[#D9C6A5]/30">
+<section id="productos" class="py-16 md:py-24 bg-[#F7F2E9] dark:bg-[#1A120D] border-t border-[#D9C6A5]/30 dark:border-[#D9C6A5]/10 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-      <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#76513B] mb-2">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#76513B] dark:text-[#D9C6A5] mb-2 transition-colors">
         <span>Catálogo Artesanal</span>
         <span aria-hidden="true">·</span>
         <span>Piezas Únicas</span>
       </div>
-      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#38271F] [text-wrap:balance]">
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#38271F] dark:text-[#F7F2E9] [text-wrap:balance] transition-colors">
         Nuestra Colección de Cuero
       </h2>
-      <p class="mt-3 text-sm sm:text-base text-[#38271F]/80 leading-relaxed">
+      <p class="mt-3 text-sm sm:text-base text-[#38271F]/80 dark:text-[#F7F2E9]/80 leading-relaxed transition-colors">
         Cada artículo es elaborado con cueros seleccionados, corte preciso y armado minucioso. Consulta disponibilidad inmediata o encarga tu pieza a medida.
       </p>
     </div>
@@ -39,8 +39,8 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
           data-category={cat}
           class={`filter-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all cursor-pointer whitespace-nowrap ${
             index === 0
-              ? 'bg-[#38271F] text-[#F7F2E9] shadow-xs active'
-              : 'bg-[#D9C6A5]/30 text-[#38271F] hover:bg-[#D9C6A5]/50'
+              ? 'bg-[#38271F] dark:bg-[#76513B] text-[#F7F2E9] shadow-xs active'
+              : 'bg-[#D9C6A5]/30 dark:bg-[#38271F]/50 text-[#38271F] dark:text-[#F7F2E9]/80 hover:bg-[#D9C6A5]/50 dark:hover:bg-[#38271F]/70'
           }`}
         >
           {cat}
@@ -58,12 +58,12 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     </div>
 
     <!-- Custom Order Banner -->
-    <div class="mt-14 p-6 sm:p-8 rounded-2xl bg-[#D9C6A5]/25 border border-[#D9C6A5]/60 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="mt-14 p-6 sm:p-8 rounded-2xl bg-[#D9C6A5]/25 dark:bg-[#38271F]/40 border border-[#D9C6A5]/60 dark:border-[#76513B]/50 flex flex-col md:flex-row items-center justify-between gap-6 transition-colors">
       <div class="space-y-1 text-center md:text-left">
-        <h3 class="font-serif text-lg sm:text-xl font-bold text-[#38271F]">
+        <h3 class="font-serif text-lg sm:text-xl font-bold text-[#38271F] dark:text-[#F7F2E9] transition-colors">
           ¿Buscas un modelo específico, grabado o medida especial?
         </h3>
-        <p class="text-xs sm:text-sm text-[#38271F]/80">
+        <p class="text-xs sm:text-sm text-[#38271F]/80 dark:text-[#F7F2E9]/80 transition-colors">
           Confeccionamos pedidos especiales en cuero vacuno y grabados personalizados. Consúltanos directamente por WhatsApp.
         </p>
       </div>
@@ -72,9 +72,9 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
         href={customOrderUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-5 py-3 bg-[#76513B] hover:bg-[#38271F] text-[#F7F2E9] rounded-lg text-xs sm:text-sm font-medium transition-colors shadow-2xs whitespace-nowrap shrink-0 active:scale-95"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-[#76513B] dark:bg-[#D9C6A5] hover:bg-[#38271F] dark:hover:bg-[#F7F2E9] text-[#F7F2E9] dark:text-[#38271F] rounded-lg text-xs sm:text-sm font-medium transition-colors shadow-2xs whitespace-nowrap shrink-0 active:scale-95"
       >
-        <svg class="w-4 h-4 text-[#D9C6A5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="w-4 h-4 text-[#D9C6A5] dark:text-[#38271F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
         </svg>
         <span>Consultar por encargo a medida</span>
@@ -86,15 +86,15 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
   <!-- Modal de Detalles del Producto -->
   <div 
     id="product-modal" 
-    class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-[#38271F]/80 backdrop-blur-xs"
+    class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-[#38271F]/80 dark:bg-black/90 backdrop-blur-xs"
     role="dialog"
     aria-modal="true"
   >
-    <div class="relative bg-[#F7F2E9] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#D9C6A5]/50 p-6 sm:p-8">
+    <div class="relative bg-[#F7F2E9] dark:bg-[#1A120D] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#D9C6A5]/50 dark:border-[#76513B]/50 p-6 sm:p-8 transition-colors">
       <button
         type="button"
         id="modal-close-btn"
-        class="absolute top-4 right-4 p-2 rounded-full text-[#38271F]/70 hover:text-[#38271F] hover:bg-[#D9C6A5]/30 transition-colors z-10"
+        class="absolute top-4 right-4 p-2 rounded-full text-[#38271F]/70 dark:text-[#F7F2E9]/70 hover:text-[#38271F] dark:hover:text-[#F7F2E9] hover:bg-[#D9C6A5]/30 dark:hover:bg-[#76513B]/40 transition-colors z-10"
         aria-label="Cerrar modal"
       >
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -104,8 +104,7 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
       </button>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        <div class="rounded-xl overflow-hidden border border-[#D9C6A5]/60 bg-white group cursor-zoom-in relative">
-          <!-- IMAGEN CON EFECTO DE ZOOM -->
+        <div class="rounded-xl overflow-hidden border border-[#D9C6A5]/60 dark:border-[#76513B]/50 bg-white dark:bg-black/50 group cursor-zoom-in relative">
           <img
             id="modal-image"
             src=""
@@ -118,31 +117,31 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
 
         <div class="space-y-4">
           <div>
-            <span id="modal-category" class="text-xs font-semibold uppercase tracking-wider text-[#76513B]"></span>
-            <h2 id="modal-title" class="font-serif text-2xl font-bold text-[#38271F] mt-1"></h2>
+            <span id="modal-category" class="text-xs font-semibold uppercase tracking-wider text-[#76513B] dark:text-[#D9C6A5] transition-colors"></span>
+            <h2 id="modal-title" class="font-serif text-2xl font-bold text-[#38271F] dark:text-[#F7F2E9] mt-1 transition-colors"></h2>
           </div>
 
-          <p id="modal-description" class="text-sm text-[#38271F]/80 leading-relaxed"></p>
+          <p id="modal-description" class="text-sm text-[#38271F]/80 dark:text-[#F7F2E9]/80 leading-relaxed transition-colors"></p>
 
-          <div class="space-y-2 pt-2 border-t border-[#D9C6A5]/40 text-xs">
-            <div class="text-[#38271F]">
+          <div class="space-y-2 pt-2 border-t border-[#D9C6A5]/40 dark:border-[#76513B]/30 text-xs transition-colors">
+            <div class="text-[#38271F] dark:text-[#F7F2E9]">
               <strong>Material:</strong> <span id="modal-material"></span>
             </div>
-            <div id="modal-dimensions-container" class="text-[#38271F]">
+            <div id="modal-dimensions-container" class="text-[#38271F] dark:text-[#F7F2E9]">
               <strong>Dimensiones:</strong> <span id="modal-dimensions"></span>
             </div>
           </div>
 
           <div class="pt-2">
-            <h3 class="text-xs font-semibold text-[#38271F] uppercase tracking-wider mb-2">
+            <h3 class="text-xs font-semibold text-[#38271F] dark:text-[#F7F2E9] uppercase tracking-wider mb-2 transition-colors">
               Detalles de confección:
             </h3>
-            <ul id="modal-features" class="space-y-1.5 text-xs text-[#38271F]/85"></ul>
+            <ul id="modal-features" class="space-y-1.5 text-xs text-[#38271F]/85 dark:text-[#F7F2E9]/85 transition-colors"></ul>
           </div>
 
-          <div class="bg-[#D9C6A5]/20 p-3 rounded-lg border border-[#D9C6A5]/50 text-xs space-y-1">
-            <p class="font-semibold text-[#38271F]">Cuidado del cuero genuino:</p>
-            <p class="text-[#38271F]/80">
+          <div class="bg-[#D9C6A5]/20 dark:bg-[#38271F]/40 p-3 rounded-lg border border-[#D9C6A5]/50 dark:border-[#76513B]/50 text-xs space-y-1 transition-colors">
+            <p class="font-semibold text-[#38271F] dark:text-[#F7F2E9]">Cuidado del cuero genuino:</p>
+            <p class="text-[#38271F]/80 dark:text-[#F7F2E9]/80">
               Evitar calor directo y exceso de agua. Aplicar bálsamo neutro periódicamente para mantener la elasticidad y pátina.
             </p>
           </div>
@@ -153,7 +152,7 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-[#38271F] hover:bg-[#76513B] text-[#F7F2E9] rounded-lg text-sm font-medium transition-all shadow-xs hover:shadow-md active:scale-95 whitespace-nowrap"
+              class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-[#38271F] dark:bg-[#76513B] hover:bg-[#76513B] dark:hover:bg-[#5C3A21] text-[#F7F2E9] rounded-lg text-sm font-medium transition-all shadow-xs hover:shadow-md active:scale-95 whitespace-nowrap"
             >
               <svg class="w-4 h-4 text-[#D9C6A5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
@@ -167,7 +166,7 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     </div>
   </div>
 
-  <!-- Lightbox de Imagen del Producto a Pantalla Completa -->
+  <!-- Lightbox de Imagen del Producto -->
   <div
     id="product-lightbox"
     class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md"
@@ -205,18 +204,18 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
 
 <!-- Client Script for Filtering & Modals -->
 <script define:vars={{ products: PRODUCTS }}>
-  // --- Category Filtering ---
+  // (El script se mantiene exactamente igual que antes)
   const filterButtons = document.querySelectorAll('.filter-btn');
   const productItems = document.querySelectorAll('.product-item');
 
   filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       filterButtons.forEach((b) => {
-        b.classList.remove('bg-[#38271F]', 'text-[#F7F2E9]', 'shadow-xs', 'active');
-        b.classList.add('bg-[#D9C6A5]/30', 'text-[#38271F]');
+        b.classList.remove('bg-[#38271F]', 'dark:bg-[#76513B]', 'text-[#F7F2E9]', 'shadow-xs', 'active');
+        b.classList.add('bg-[#D9C6A5]/30', 'dark:bg-[#38271F]/50', 'text-[#38271F]', 'dark:text-[#F7F2E9]/80');
       });
-      btn.classList.add('bg-[#38271F]', 'text-[#F7F2E9]', 'shadow-xs', 'active');
-      btn.classList.remove('bg-[#D9C6A5]/30', 'text-[#38271F]');
+      btn.classList.add('bg-[#38271F]', 'dark:bg-[#76513B]', 'text-[#F7F2E9]', 'shadow-xs', 'active');
+      btn.classList.remove('bg-[#D9C6A5]/30', 'dark:bg-[#38271F]/50', 'text-[#38271F]', 'dark:text-[#F7F2E9]/80');
 
       const selected = btn.getAttribute('data-category');
       productItems.forEach((item) => {
@@ -229,7 +228,6 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     });
   });
 
-  // --- Modal Handling ---
   const modal = document.getElementById('product-modal');
   const closeBtn = document.getElementById('modal-close-btn');
   const modalImg = document.getElementById('modal-image');
@@ -240,8 +238,6 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
   const modalDim = document.getElementById('modal-dimensions');
   const modalFeatures = document.getElementById('modal-features');
   const modalWhatsApp = document.getElementById('modal-whatsapp-link');
-
-  // --- Lightbox Handling ---
   const lightbox = document.getElementById('product-lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxTitle = document.getElementById('lightbox-title');
@@ -264,7 +260,7 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
       const li = document.createElement('li');
       li.className = 'flex items-center gap-2';
       li.innerHTML = `
-        <svg class="w-3.5 h-3.5 text-[#76513B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="w-3.5 h-3.5 text-[#76513B] dark:text-[#D9C6A5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
         <span>${feat}</span>
@@ -275,7 +271,6 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     const msg = `Hola Montanares Todo Cuero, me gustaría consultar por la disponibilidad de: ${product.name}. ¿Me podrían dar más detalles sobre disponibilidad y envíos?`;
     modalWhatsApp.href = `https://wa.me/56927047529?text=${encodeURIComponent(msg)}`;
 
-    // Al hacer clic en la imagen del modal, abrimos el Lightbox
     modalImg.onclick = () => {
       lightboxImg.src = product.image.src;
       lightboxImg.alt = product.name;
@@ -290,12 +285,10 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
   function closeProductModal() {
     if (!modal) return;
     modal.classList.add('hidden');
-    // Si cerramos el modal y el lightbox quedó abierto, lo cerramos también
     if (lightbox) lightbox.classList.add('hidden');
     document.body.style.overflow = 'unset';
   }
 
-  // Eventos para abrir el modal del producto
   document.querySelectorAll('.product-card-trigger').forEach((el) => {
     el.addEventListener('click', () => {
       const id = el.getAttribute('data-product-id');
@@ -308,7 +301,6 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     if (e.target === modal) closeProductModal();
   });
 
-  // Eventos para cerrar el Lightbox
   lightboxClose?.addEventListener('click', () => {
     lightbox.classList.add('hidden');
   });
@@ -316,7 +308,6 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     if (e.target === lightbox) lightbox.classList.add('hidden');
   });
 
-  // Cerrar con la tecla Escape
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (lightbox && !lightbox.classList.contains('hidden')) {

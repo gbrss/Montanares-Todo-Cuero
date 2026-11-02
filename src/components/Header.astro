@@ -4,7 +4,7 @@ import { getGeneralWhatsAppUrl } from '../data/products.js';
 const whatsappUrl = getGeneralWhatsAppUrl();
 ---
 
-<header class="sticky top-0 z-40 bg-[#F7F2E9]/95 backdrop-blur-md border-b border-[#D9C6A5]/40 transition-colors">
+<header class="sticky top-0 z-40 bg-[#F7F2E9]/95 dark:bg-[#251A14]/95 backdrop-blur-md border-b border-[#D9C6A5]/40 dark:border-[#5C3A21]/50 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between gap-8 h-20">
       
@@ -14,7 +14,6 @@ const whatsappUrl = getGeneralWhatsAppUrl();
         class="flex items-center gap-2 group whitespace-nowrap shrink-0"
         aria-label="Montanares Todo Cuero - Inicio"
       >
-        <!-- Tu logo PNG -->
         <img 
           src="/images/logo.png" 
           alt="Montanares Todo Cuero" 
@@ -23,22 +22,65 @@ const whatsappUrl = getGeneralWhatsAppUrl();
       </a>
 
       <!-- Zone 2: Navigation Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#38271F]/80">
-        <a href="#inicio" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Inicio</a>
-        <a href="#productos" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Productos</a>
-        <a href="#nosotros" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Nosotros</a>
-        <a href="#galeria" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Galería</a>
-        <a href="#testimonios" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Testimonios</a>
-        <a href="#contacto" class="hover:text-[#76513B] transition-colors whitespace-nowrap shrink-0 py-1">Contacto</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#38271F]/80 dark:text-[#F7F2E9]/80 transition-colors">
+        <!-- Enlaces con efecto de línea animada y clase para Scroll Spy -->
+        <a href="#inicio" class="nav-link relative group py-1 hover:text-[#76513B] dark:hover:text-[#D9C6A5] transition-colors whitespace-nowrap shrink-0">
+          Inicio
+          <span class="absolute left-0 bottom-0 w-full h-[2px] bg-[#76513B] dark:bg-[#D9C6A5] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+        </a>
+        <a href="#productos" class="nav-link relative group py-1 hover:text-[#76513B] dark:hover:text-[#D9C6A5] transition-colors whitespace-nowrap shrink-0">
+          Productos
+          <span class="absolute left-0 bottom-0 w-full h-[2px] bg-[#76513B] dark:bg-[#D9C6A5] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+        </a>
+        <a href="#nosotros" class="nav-link relative group py-1 hover:text-[#76513B] dark:hover:text-[#D9C6A5] transition-colors whitespace-nowrap shrink-0">
+          Nosotros
+          <span class="absolute left-0 bottom-0 w-full h-[2px] bg-[#76513B] dark:bg-[#D9C6A5] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+        </a>
+        <a href="#galeria" class="nav-link relative group py-1 hover:text-[#76513B] dark:hover:text-[#D9C6A5] transition-colors whitespace-nowrap shrink-0">
+          Galería
+          <span class="absolute left-0 bottom-0 w-full h-[2px] bg-[#76513B] dark:bg-[#D9C6A5] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+        </a>
+        <a href="#testimonios" class="nav-link relative group py-1 hover:text-[#76513B] dark:hover:text-[#D9C6A5] transition-colors whitespace-nowrap shrink-0">
+          Testimonios
+          <span class="absolute left-0 bottom-0 w-full h-[2px] bg-[#76513B] dark:bg-[#D9C6A5] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+        </a>
+        <a href="#contacto" class="nav-link relative group py-1 hover:text-[#76513B] dark:hover:text-[#D9C6A5] transition-colors whitespace-nowrap shrink-0">
+          Contacto
+          <span class="absolute left-0 bottom-0 w-full h-[2px] bg-[#76513B] dark:bg-[#D9C6A5] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+        </a>
       </nav>
 
-      <!-- Zone 3: Primary Action -->
+      <!-- Zone 3: Primary Action & Dark Mode Toggle -->
       <div class="flex items-center gap-3 shrink-0">
+        
+        <!-- BOTÓN MODO OSCURO -->
+        <button
+          type="button"
+          id="theme-toggle"
+          class="p-2 rounded-lg text-[#38271F] dark:text-[#D9C6A5] hover:bg-[#D9C6A5]/30 dark:hover:bg-[#76513B]/40 transition-colors focus:outline-none cursor-pointer"
+          aria-label="Alternar modo oscuro"
+        >
+          <svg id="theme-toggle-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="theme-toggle-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 bg-[#38271F] hover:bg-[#76513B] text-[#F7F2E9] rounded-lg text-xs md:text-sm font-medium tracking-wide transition-all shadow-xs hover:shadow-md active:scale-95 whitespace-nowrap shrink-0"
+          class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 bg-[#38271F] dark:bg-[#76513B] hover:bg-[#76513B] dark:hover:bg-[#5C3A21] text-[#F7F2E9] rounded-lg text-xs md:text-sm font-medium tracking-wide transition-all shadow-xs hover:shadow-md active:scale-95 whitespace-nowrap shrink-0"
         >
           <svg class="w-4 h-4 text-[#D9C6A5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
@@ -50,7 +92,7 @@ const whatsappUrl = getGeneralWhatsAppUrl();
         <button
           type="button"
           id="mobile-menu-toggle"
-          class="md:hidden p-2 rounded-lg text-[#38271F] hover:bg-[#D9C6A5]/20 focus:outline-hidden focus:ring-2 focus:ring-[#76513B]"
+          class="md:hidden p-2 rounded-lg text-[#38271F] dark:text-[#D9C6A5] hover:bg-[#D9C6A5]/20 focus:outline-hidden focus:ring-2 focus:ring-[#76513B] cursor-pointer"
           aria-label="Abrir menú"
         >
           <svg class="w-6 h-6" id="menu-icon-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -69,21 +111,21 @@ const whatsappUrl = getGeneralWhatsAppUrl();
   </div>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="hidden md:hidden border-b border-[#D9C6A5]/40 bg-[#F7F2E9] px-4 pt-3 pb-6 space-y-3 shadow-lg">
+  <div id="mobile-menu" class="hidden md:hidden border-b border-[#D9C6A5]/40 dark:border-[#5C3A21]/50 bg-[#F7F2E9] dark:bg-[#251A14] px-4 pt-3 pb-6 space-y-3 shadow-lg">
     <nav class="flex flex-col space-y-2">
-      <a href="#inicio" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Inicio</a>
-      <a href="#productos" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Productos</a>
-      <a href="#nosotros" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Nosotros</a>
-      <a href="#galeria" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Galería</a>
-      <a href="#testimonios" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Testimonios</a>
-      <a href="#contacto" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] hover:bg-[#D9C6A5]/25 rounded-md">Contacto</a>
+      <a href="#inicio" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] dark:text-[#F7F2E9] hover:bg-[#D9C6A5]/25 rounded-md">Inicio</a>
+      <a href="#productos" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] dark:text-[#F7F2E9] hover:bg-[#D9C6A5]/25 rounded-md">Productos</a>
+      <a href="#nosotros" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] dark:text-[#F7F2E9] hover:bg-[#D9C6A5]/25 rounded-md">Nosotros</a>
+      <a href="#galeria" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] dark:text-[#F7F2E9] hover:bg-[#D9C6A5]/25 rounded-md">Galería</a>
+      <a href="#testimonios" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] dark:text-[#F7F2E9] hover:bg-[#D9C6A5]/25 rounded-md">Testimonios</a>
+      <a href="#contacto" class="mobile-nav-link px-3 py-2 text-base font-medium text-[#38271F] dark:text-[#F7F2E9] hover:bg-[#D9C6A5]/25 rounded-md">Contacto</a>
     </nav>
     <div class="pt-2">
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#38271F] text-[#F7F2E9] rounded-lg text-sm font-medium hover:bg-[#76513B] transition-colors"
+        class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#38271F] dark:bg-[#76513B] text-[#F7F2E9] rounded-lg text-sm font-medium hover:bg-[#76513B] transition-colors"
       >
         <svg class="w-5 h-5 text-[#D9C6A5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
@@ -94,12 +136,27 @@ const whatsappUrl = getGeneralWhatsAppUrl();
   </div>
 </header>
 
+<style>
+  /* Estilo para el enlace activo en el Scroll Spy */
+  .nav-link.active {
+    color: #76513B; /* Color activo en modo claro */
+    font-weight: 600;
+  }
+  :global(.dark) .nav-link.active {
+    color: #D9C6A5; /* Color activo en modo oscuro */
+  }
+  .nav-link.active span {
+    transform: scale-x-100 !important; /* Mantiene la línea visible si está activo */
+  }
+</style>
+
 <script>
+  // 1. Lógica del Menú Móvil
   const toggleBtn = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
   const iconBars = document.getElementById('menu-icon-bars');
   const iconClose = document.getElementById('menu-icon-close');
-  const links = document.querySelectorAll('.mobile-nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
   function toggleMenu() {
     if (!menu) return;
@@ -116,9 +173,66 @@ const whatsappUrl = getGeneralWhatsAppUrl();
   }
 
   toggleBtn?.addEventListener('click', toggleMenu);
-  links.forEach(l => l.addEventListener('click', () => {
+  mobileLinks.forEach(l => l.addEventListener('click', () => {
     menu?.classList.add('hidden');
     iconBars?.classList.remove('hidden');
     iconClose?.classList.add('hidden');
   }));
+
+  // 2. Lógica del Modo Oscuro
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeToggleSun = document.getElementById('theme-toggle-sun');
+  const themeToggleMoon = document.getElementById('theme-toggle-moon');
+
+  function updateThemeIcons() {
+    if (document.documentElement.classList.contains('dark')) {
+      themeToggleSun?.classList.remove('hidden');
+      themeToggleMoon?.classList.add('hidden');
+    } else {
+      themeToggleSun?.classList.add('hidden');
+      themeToggleMoon?.classList.remove('hidden');
+    }
+  }
+
+  updateThemeIcons();
+
+  themeToggleBtn?.addEventListener('click', () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    updateThemeIcons();
+  });
+
+  // 3. Lógica del Scroll Spy (Detectar sección activa)
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3 // Se activa cuando el 30% de la sección es visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        
+        // Quitar clase 'active' de todos
+        navLinks.forEach((link) => link.classList.remove('active'));
+        
+        // Agregar 'active' al enlace correspondiente
+        const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
 </script>

@@ -2,20 +2,20 @@
 import { GALLERY_ITEMS } from '../data/products.js';
 ---
 
-<section id="galeria" class="py-16 md:py-24 bg-[#F7F2E9]">
+<section id="galeria" class="py-16 md:py-24 bg-[#F7F2E9] dark:bg-[#1A120D] transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Header -->
     <div class="text-center max-w-2xl mx-auto mb-12">
-      <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#76513B] mb-2">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#76513B] dark:text-[#D9C6A5] mb-2 transition-colors">
         <span>Texturas & Detalles</span>
         <span aria-hidden="true">·</span>
         <span>Galería Fotográfica</span>
       </div>
-      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#38271F] [text-wrap:balance]">
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#38271F] dark:text-[#F7F2E9] [text-wrap:balance] transition-colors">
         El Arte en los Detalles
       </h2>
-      <p class="mt-3 text-sm sm:text-base text-[#38271F]/80 leading-relaxed">
+      <p class="mt-3 text-sm sm:text-base text-[#38271F]/80 dark:text-[#F7F2E9]/80 leading-relaxed transition-colors">
         Haz clic en cualquier imagen para ampliarla y apreciar las texturas, el grano natural, la precisión de las costuras y los herrajes.
       </p>
     </div>
@@ -25,7 +25,7 @@ import { GALLERY_ITEMS } from '../data/products.js';
       {GALLERY_ITEMS.map((item, index) => (
         <div
           data-index={index}
-          class="gallery-trigger group relative rounded-xl overflow-hidden border border-[#D9C6A5]/50 bg-[#38271F]/5 cursor-pointer shadow-2xs hover:shadow-lg transition-all duration-300"
+          class="gallery-trigger group relative rounded-xl overflow-hidden border border-[#D9C6A5]/50 dark:border-[#5C3A21]/50 bg-[#38271F]/5 dark:bg-black/20 cursor-pointer shadow-2xs hover:shadow-lg dark:shadow-lg dark:hover:shadow-[#76513B]/20 transition-all duration-300"
         >
           <img
             id={`gallery-thumb-${index}`}
@@ -36,7 +36,7 @@ import { GALLERY_ITEMS } from '../data/products.js';
             loading="lazy"
           />
           
-          <div class="absolute inset-0 bg-gradient-to-t from-[#38271F]/90 via-[#38271F]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#38271F]/90 via-[#38271F]/30 to-transparent dark:from-black/90 dark:via-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
             <div class="flex items-center justify-between">
               <div>
                 <h3 class="font-serif text-base font-bold text-[#F7F2E9]">
@@ -62,7 +62,7 @@ import { GALLERY_ITEMS } from '../data/products.js';
 
   </div>
 
-  <!-- Lightbox Modal EXCLUSIVO DE GALERÍA -->
+  <!-- Lightbox Modal (Los colores del visor ya son oscuros por defecto, no necesitan cambios) -->
   <div
     id="gallery-lightbox"
     class="fixed inset-0 z-[70] hidden flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md"
@@ -124,7 +124,6 @@ import { GALLERY_ITEMS } from '../data/products.js';
 <script define:vars={{ items: GALLERY_ITEMS }}>
   let currentIndex = null;
   
-  // Usamos los IDs exclusivos para no chocar con ProductGrid
   const lightbox = document.getElementById('gallery-lightbox');
   const lightboxImg = document.getElementById('gallery-lightbox-img');
   const lightboxTitle = document.getElementById('gallery-lightbox-title');
@@ -138,7 +137,6 @@ import { GALLERY_ITEMS } from '../data/products.js';
     if (index === null || index < 0 || index >= items.length) return;
     currentIndex = index;
     
-    // Buscamos la imagen real en el DOM usando su ID único de la galería
     const currentImgElement = document.getElementById(`gallery-thumb-${index}`);
     const realSrc = currentImgElement ? currentImgElement.src : '';
 

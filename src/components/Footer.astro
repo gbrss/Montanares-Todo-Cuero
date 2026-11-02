@@ -5,15 +5,13 @@ const generalWhatsAppUrl = getGeneralWhatsAppUrl();
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-[#38271F] text-[#F7F2E9] border-t border-[#D9C6A5]/20 pt-16 pb-12">
+<footer class="bg-[#38271F] dark:bg-[#0F0A07] text-[#F7F2E9] border-t border-[#D9C6A5]/20 dark:border-[#5C3A21]/30 pt-16 pb-12 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#D9C6A5]/20">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#D9C6A5]/20 dark:border-[#5C3A21]/30">
       
       <!-- Brand Info -->
       <div class="md:col-span-5 space-y-4">
         <a href="#inicio" class="flex items-center gap-2 group w-fit" aria-label="Montanares Todo Cuero - Inicio">
-          
-          <!-- Logo con Sombra Blanca Intensificada (Normal y Hover) -->
           <img 
             src="/images/logo.png" 
             alt="Montanares Todo Cuero" 
@@ -21,7 +19,6 @@ const currentYear = new Date().getFullYear();
                    [filter:brightness(1.25)_drop-shadow(0_0_12px_rgba(247,242,233,0.6))] 
                    group-hover:[filter:brightness(1.4)_drop-shadow(0_0_25px_rgba(247,242,233,1))]"
           />
-          
         </a>
 
         <p class="text-xs sm:text-sm text-[#F7F2E9]/75 max-w-sm leading-relaxed">
@@ -88,14 +85,34 @@ const currentYear = new Date().getFullYear();
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F7F2E9]/60">
       <p>© {currentYear} Montanares Todo Cuero. Todos los derechos reservados.</p>
       
-      <a href="#inicio" class="flex items-center gap-1.5 hover:text-[#D9C6A5] transition-colors cursor-pointer">
+      <!-- BOTÓN VOLVER ARRIBA -->
+      <button 
+        id="scroll-to-top" 
+        class="flex items-center gap-1.5 hover:text-[#D9C6A5] transition-colors cursor-pointer bg-transparent border-none p-0 focus:outline-none"
+        aria-label="Volver al inicio de la página"
+      >
         <span>Volver arriba</span>
         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="12" y1="19" x2="12" y2="5"></line>
           <polyline points="5 12 12 5 19 12"></polyline>
         </svg>
-      </a>
+      </button>
     </div>
 
   </div>
 </footer>
+
+<script>
+  // Script para el botón "Volver arriba"
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollBtn = document.getElementById('scroll-to-top');
+    if (scrollBtn) {
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+  });
+</script>

@@ -47,19 +47,27 @@ const whatsappUrl = getGeneralWhatsAppUrl();
       -1px -1px 0px rgba(0, 0, 0, 0.2),
       2px 2px 4px rgba(0, 0, 0, 0.1);
   }
+
+  /* Ajuste del color del texto en modo oscuro para que resalte */
+  :global(.dark) .text-leather-effect {
+    color: #D9C6A5;
+    text-shadow: 
+      1px 1px 0px rgba(0, 0, 0, 0.6),
+      -1px -1px 0px rgba(255, 255, 255, 0.1),
+      2px 2px 6px rgba(0, 0, 0, 0.5);
+  }
 </style>
 
-<section id="inicio" class="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24">
+<section id="inicio" class="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 bg-[#F7F2E9] dark:bg-[#1A120D] transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
       
       <!-- Columna Izquierda -->
       <div class="lg:col-span-6 flex flex-col justify-center space-y-6">
         
-        <!-- BADGES / TEXTO SUPERIOR CORREGIDO PARA MÓVIL -->
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-[#76513B]">
+        <!-- BADGES / TEXTO SUPERIOR -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-[#76513B] dark:text-[#D9C6A5]">
           <span>Marroquinería Artesanal</span>
-          <!-- El punto solo se muestra en pantallas medianas en adelante -->
           <span class="hidden sm:inline" aria-hidden="true">·</span>
           <span>Chile</span>
           <span class="hidden sm:inline" aria-hidden="true">·</span>
@@ -72,21 +80,21 @@ const whatsappUrl = getGeneralWhatsAppUrl();
           <span class="animate-text-2">en cada pieza</span>
         </h1>
 
-        <p class="text-base sm:text-lg text-[#38271F]/80 leading-relaxed max-w-xl">
+        <p class="text-base sm:text-lg text-[#38271F]/80 dark:text-[#F7F2E9]/80 leading-relaxed max-w-xl">
           Descubre productos con carácter, detalles únicos y esencia artesanal. Confeccionamos piezas diseñadas para resistir el paso del tiempo con la nobleza del cuero auténtico.
         </p>
 
         <!-- Botones -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-          <a href="#productos" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#38271F] hover:bg-[#76513B] text-[#F7F2E9] rounded-lg text-sm font-medium tracking-wide transition-all shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap shrink-0 group">
+          <a href="#productos" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#38271F] dark:bg-[#76513B] hover:bg-[#76513B] dark:hover:bg-[#5C3A21] text-[#F7F2E9] rounded-lg text-sm font-medium tracking-wide transition-all shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap shrink-0 group">
             <span>Explorar productos</span>
             <svg class="w-4 h-4 text-[#D9C6A5] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="7" x2="17" y2="17"></line>
               <polyline points="17 7 17 17 7 17"></polyline>
             </svg>
           </a>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#76513B]/40 hover:border-[#76513B] bg-[#F7F2E9] hover:bg-[#D9C6A5]/20 text-[#38271F] rounded-lg text-sm font-medium transition-all shadow-2xs active:scale-95 whitespace-nowrap shrink-0">
-            <svg class="w-4 h-4 text-[#76513B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#76513B]/40 dark:border-[#D9C6A5]/40 hover:border-[#76513B] dark:hover:border-[#D9C6A5] bg-transparent text-[#38271F] dark:text-[#F7F2E9] rounded-lg text-sm font-medium transition-all active:scale-95 whitespace-nowrap shrink-0">
+            <svg class="w-4 h-4 text-[#76513B] dark:text-[#D9C6A5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
             </svg>
             <span>Contactar por WhatsApp</span>
@@ -94,17 +102,17 @@ const whatsappUrl = getGeneralWhatsAppUrl();
         </div>
 
         <!-- Trust Badges -->
-        <div class="pt-6 border-t border-[#D9C6A5]/40 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-[#38271F]/85">
+        <div class="pt-6 border-t border-[#D9C6A5]/40 dark:border-[#D9C6A5]/20 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-[#38271F]/85 dark:text-[#F7F2E9]/85">
           <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#76513B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <svg class="w-4 h-4 text-[#76513B] dark:text-[#D9C6A5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             <span class="font-medium">Cuero vacuno genuino</span>
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#76513B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            <svg class="w-4 h-4 text-[#76513B] dark:text-[#D9C6A5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
             <span class="font-medium">Terminaciones a mano</span>
           </div>
           <div class="flex items-center gap-2 col-span-2 sm:col-span-1">
-            <svg class="w-4 h-4 text-[#76513B] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <svg class="w-4 h-4 text-[#76513B] dark:text-[#D9C6A5] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
             <span class="font-medium">Envíos a todo Chile</span>
           </div>
         </div>
@@ -112,12 +120,12 @@ const whatsappUrl = getGeneralWhatsAppUrl();
 
       <!-- Columna Derecha -->
       <div class="lg:col-span-6 relative">
-        <div class="relative rounded-2xl overflow-hidden border border-[#D9C6A5]/50 shadow-xl bg-[#38271F]/5 group animate-float">
+        <div class="relative rounded-2xl overflow-hidden border border-[#D9C6A5]/50 dark:border-[#D9C6A5]/20 shadow-xl bg-[#38271F]/5 dark:bg-black/20 group animate-float">
           <div class="overflow-hidden w-full h-full">
             <img src={imgHero.src} alt="Colección artesanal Montanares Todo Cuero" class="w-full h-auto object-cover aspect-16/10 sm:aspect-4/3 lg:aspect-5/4 animate-pan group-hover:scale-[1.02] transition-transform duration-700 ease-out" referrerpolicy="no-referrer" loading="eager" />
           </div>
           <div class="absolute inset-0 bg-gradient-to-t from-[#38271F]/80 via-transparent to-transparent opacity-60 pointer-events-none"></div>
-          <div class="absolute bottom-4 left-4 right-4 text-[#F7F2E9] text-xs flex justify-between items-end backdrop-blur-xs bg-[#38271F]/40 p-3 rounded-lg border border-white/10">
+          <div class="absolute bottom-4 left-4 right-4 text-[#F7F2E9] text-xs flex justify-between items-end backdrop-blur-xs bg-[#38271F]/40 dark:bg-black/60 p-3 rounded-lg border border-white/10">
             <div>
               <p class="font-serif font-semibold text-sm">Colección Taller Montanares</p>
               <p class="text-[#D9C6A5] text-[11px]">Materiales nobles, costuras resistentes y durabilidad</p>
@@ -125,7 +133,7 @@ const whatsappUrl = getGeneralWhatsAppUrl();
             <span class="text-[11px] text-[#D9C6A5] hidden sm:inline-block">Hecho a mano</span>
           </div>
         </div>
-        <div aria-hidden="true" class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D9C6A5]/25 rounded-full blur-2xl -z-10 pointer-events-none"></div>
+        <div aria-hidden="true" class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#D9C6A5]/25 dark:bg-[#5C3A21]/20 rounded-full blur-2xl -z-10 pointer-events-none"></div>
       </div>
 
     </div>
