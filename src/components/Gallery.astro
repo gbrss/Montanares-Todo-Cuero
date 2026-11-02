@@ -28,6 +28,7 @@ import { GALLERY_ITEMS } from '../data/products.js';
           class="gallery-trigger group relative rounded-xl overflow-hidden border border-[#D9C6A5]/50 bg-[#38271F]/5 cursor-pointer shadow-2xs hover:shadow-lg transition-all duration-300"
         >
           <img
+            id={`gallery-thumb-${index}`}
             src={item.image.src}
             alt={item.title}
             class="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
@@ -61,17 +62,17 @@ import { GALLERY_ITEMS } from '../data/products.js';
 
   </div>
 
-  <!-- Lightbox Modal -->
+  <!-- Lightbox Modal EXCLUSIVO DE GALERÍA -->
   <div
     id="gallery-lightbox"
-    class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md"
+    class="fixed inset-0 z-[70] hidden flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md"
     role="dialog"
     aria-modal="true"
     aria-label="Visualizador de fotos de galería"
   >
     <button
       type="button"
-      id="lightbox-close"
+      id="gallery-lightbox-close"
       class="absolute top-4 right-4 z-10 p-3 rounded-full bg-black/50 text-[#F7F2E9] hover:bg-black/80 transition-colors cursor-pointer"
       aria-label="Cerrar visor"
     >
@@ -83,7 +84,7 @@ import { GALLERY_ITEMS } from '../data/products.js';
 
     <button
       type="button"
-      id="lightbox-prev"
+      id="gallery-lightbox-prev"
       class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-black/50 text-[#F7F2E9] hover:bg-black/80 transition-colors hidden sm:flex items-center justify-center cursor-pointer"
       aria-label="Imagen anterior"
     >
@@ -94,7 +95,7 @@ import { GALLERY_ITEMS } from '../data/products.js';
 
     <button
       type="button"
-      id="lightbox-next"
+      id="gallery-lightbox-next"
       class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-black/50 text-[#F7F2E9] hover:bg-black/80 transition-colors hidden sm:flex items-center justify-center cursor-pointer"
       aria-label="Siguiente imagen"
     >
@@ -103,18 +104,18 @@ import { GALLERY_ITEMS } from '../data/products.js';
       </svg>
     </button>
 
-    <div class="relative max-w-4xl max-h-[85vh] flex flex-col items-center justify-center" id="lightbox-content">
+    <div class="relative max-w-4xl max-h-[85vh] flex flex-col items-center justify-center">
       <img
-        id="lightbox-img"
+        id="gallery-lightbox-img"
         src=""
         alt=""
         class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl border border-white/10"
         referrerpolicy="no-referrer"
       />
       <div class="mt-4 text-center text-[#F7F2E9] space-y-1">
-        <h3 id="lightbox-title" class="font-serif text-lg font-bold"></h3>
-        <p id="lightbox-subtitle" class="text-xs text-[#D9C6A5]"></p>
-        <p id="lightbox-counter" class="text-[11px] text-[#F7F2E9]/60"></p>
+        <h3 id="gallery-lightbox-title" class="font-serif text-lg font-bold"></h3>
+        <p id="gallery-lightbox-subtitle" class="text-xs text-[#D9C6A5]"></p>
+        <p id="gallery-lightbox-counter" class="text-[11px] text-[#F7F2E9]/60"></p>
       </div>
     </div>
   </div>
@@ -122,25 +123,29 @@ import { GALLERY_ITEMS } from '../data/products.js';
 
 <script define:vars={{ items: GALLERY_ITEMS }}>
   let currentIndex = null;
+  
+  // Usamos los IDs exclusivos para no chocar con ProductGrid
   const lightbox = document.getElementById('gallery-lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxTitle = document.getElementById('lightbox-title');
-  const lightboxSubtitle = document.getElementById('lightbox-subtitle');
-  const lightboxCounter = document.getElementById('lightbox-counter');
-  const closeBtn = document.getElementById('lightbox-close');
-  const prevBtn = document.getElementById('lightbox-prev');
-  const nextBtn = document.getElementById('lightbox-next');
+  const lightboxImg = document.getElementById('gallery-lightbox-img');
+  const lightboxTitle = document.getElementById('gallery-lightbox-title');
+  const lightboxSubtitle = document.getElementById('gallery-lightbox-subtitle');
+  const lightboxCounter = document.getElementById('gallery-lightbox-counter');
+  const closeBtn = document.getElementById('gallery-lightbox-close');
+  const prevBtn = document.getElementById('gallery-lightbox-prev');
+  const nextBtn = document.getElementById('gallery-lightbox-next');
 
   function showImage(index) {
     if (index === null || index < 0 || index >= items.length) return;
     currentIndex = index;
-    const item = items[index];
     
-    // IMPORTANTE: Usamos item.image.src para el lightbox
-    lightboxImg.src = item.image.src;
-    lightboxImg.alt = item.title;
-    lightboxTitle.textContent = item.title;
-    lightboxSubtitle.textContent = item.subtitle;
+    // Buscamos la imagen real en el DOM usando su ID único de la galería
+    const currentImgElement = document.getElementById(`gallery-thumb-${index}`);
+    const realSrc = currentImgElement ? currentImgElement.src : '';
+
+    lightboxImg.src = realSrc;
+    lightboxImg.alt = items[index].title;
+    lightboxTitle.textContent = items[index].title;
+    lightboxSubtitle.textContent = items[index].subtitle;
     lightboxCounter.textContent = `${index + 1} de ${items.length}`;
 
     lightbox.classList.remove('hidden');

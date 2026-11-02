@@ -83,7 +83,7 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
 
   </div>
 
-  <!-- Accessible Product Details Modal -->
+  <!-- Modal de Detalles del Producto -->
   <div 
     id="product-modal" 
     class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-[#38271F]/80 backdrop-blur-xs"
@@ -105,17 +105,15 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <div class="rounded-xl overflow-hidden border border-[#D9C6A5]/60 bg-white group cursor-zoom-in relative">
-          
-          <!-- IMAGEN CON EFECTO DE ZOOM Y MOVIMIENTO -->
+          <!-- IMAGEN CON EFECTO DE ZOOM -->
           <img
             id="modal-image"
             src=""
             alt=""
-            class="w-full h-full aspect-4/3 object-cover transition-transform duration-700 ease-out group-hover:scale-125"
+            class="w-full h-full aspect-4/3 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             referrerpolicy="no-referrer"
-            title="Haz clic para ampliar"
+            title="Haz clic para ampliar a pantalla completa"
           />
-
         </div>
 
         <div class="space-y-4">
@@ -168,11 +166,46 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
       </div>
     </div>
   </div>
+
+  <!-- Lightbox de Imagen del Producto a Pantalla Completa -->
+  <div
+    id="product-lightbox"
+    class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Visualizador de imagen de producto"
+  >
+    <button
+      type="button"
+      id="lightbox-close"
+      class="absolute top-4 right-4 z-10 p-3 rounded-full bg-black/50 text-[#F7F2E9] hover:bg-black/80 transition-colors cursor-pointer"
+      aria-label="Cerrar visor"
+    >
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center">
+      <img
+        id="lightbox-img"
+        src=""
+        alt=""
+        class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-white/10"
+        referrerpolicy="no-referrer"
+      />
+      <div class="mt-4 text-center text-[#F7F2E9]">
+        <h3 id="lightbox-title" class="font-serif text-lg font-bold"></h3>
+      </div>
+    </div>
+  </div>
+
 </section>
 
-<!-- Client Script for Filtering & Modal -->
+<!-- Client Script for Filtering & Modals -->
 <script define:vars={{ products: PRODUCTS }}>
-  // Category Filtering
+  // --- Category Filtering ---
   const filterButtons = document.querySelectorAll('.filter-btn');
   const productItems = document.querySelectorAll('.product-item');
 
@@ -196,7 +229,7 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     });
   });
 
-  // Modal Handling
+  // --- Modal Handling ---
   const modal = document.getElementById('product-modal');
   const closeBtn = document.getElementById('modal-close-btn');
   const modalImg = document.getElementById('modal-image');
@@ -207,6 +240,12 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
   const modalDim = document.getElementById('modal-dimensions');
   const modalFeatures = document.getElementById('modal-features');
   const modalWhatsApp = document.getElementById('modal-whatsapp-link');
+
+  // --- Lightbox Handling ---
+  const lightbox = document.getElementById('product-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxClose = document.getElementById('lightbox-close');
 
   function openProductModal(productId) {
     const product = products.find((p) => p.id === productId);
@@ -219,11 +258,6 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     modalDesc.textContent = product.description;
     modalMaterial.textContent = product.material;
     modalDim.textContent = product.dimensions || 'Estándar';
-
-    // FUNCIÓN DE ZOOM: Al hacer clic en la imagen, se abre en tamaño original
-    modalImg.onclick = () => {
-      window.open(product.image.src, '_blank');
-    };
 
     modalFeatures.innerHTML = '';
     product.features.forEach((feat) => {
@@ -241,6 +275,14 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
     const msg = `Hola Montanares Todo Cuero, me gustaría consultar por la disponibilidad de: ${product.name}. ¿Me podrían dar más detalles sobre disponibilidad y envíos?`;
     modalWhatsApp.href = `https://wa.me/56927047529?text=${encodeURIComponent(msg)}`;
 
+    // Al hacer clic en la imagen del modal, abrimos el Lightbox
+    modalImg.onclick = () => {
+      lightboxImg.src = product.image.src;
+      lightboxImg.alt = product.name;
+      lightboxTitle.textContent = product.name;
+      lightbox.classList.remove('hidden');
+    };
+
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
@@ -248,9 +290,12 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
   function closeProductModal() {
     if (!modal) return;
     modal.classList.add('hidden');
+    // Si cerramos el modal y el lightbox quedó abierto, lo cerramos también
+    if (lightbox) lightbox.classList.add('hidden');
     document.body.style.overflow = 'unset';
   }
 
+  // Eventos para abrir el modal del producto
   document.querySelectorAll('.product-card-trigger').forEach((el) => {
     el.addEventListener('click', () => {
       const id = el.getAttribute('data-product-id');
@@ -262,7 +307,23 @@ const customOrderUrl = getGeneralWhatsAppUrl('Hola Montanares Todo Cuero, me gus
   modal?.addEventListener('click', (e) => {
     if (e.target === modal) closeProductModal();
   });
+
+  // Eventos para cerrar el Lightbox
+  lightboxClose?.addEventListener('click', () => {
+    lightbox.classList.add('hidden');
+  });
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.add('hidden');
+  });
+
+  // Cerrar con la tecla Escape
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeProductModal();
+    if (e.key === 'Escape') {
+      if (lightbox && !lightbox.classList.contains('hidden')) {
+        lightbox.classList.add('hidden');
+      } else {
+        closeProductModal();
+      }
+    }
   });
 </script>
