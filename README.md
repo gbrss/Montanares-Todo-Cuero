@@ -72,7 +72,7 @@ El concepto estético evoca la nobleza de los materiales naturales, la durabilid
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│  TITULARES & MARCA  : Playfair Display / Cormorant Garamond (Serif)   │
+│  TITULARES & MARCA  : Playfair Display / Cormorant Garamond (Serif)    │
 │  TEXTO & LECTURA    : Inter (Sans-Serif, pesos 300, 400, 500, 600)     │
 │  METADATOS & CIFRAS : Tabular Figures (tabular-nums)                   │
 └────────────────────────────────────────────────────────────────────────┘
@@ -93,7 +93,7 @@ El concepto estético evoca la nobleza de los materiales naturales, la durabilid
 ├──────────────────────────────────────────────────────────────────────────┤
 │                                                                          │
 │  ┌───────────────────────┐          ┌─────────────────────────────────┐  │
-│  │   src/pages/index.astro│ ───────► │   src/layouts/MainLayout.astro  │  │
+│  │   src/pages/index.astro│ ───────►│   src/layouts/MainLayout.astro  │  │
 │  └───────────┬───────────┘          └────────────────┬────────────────┘  │
 │              │                                       │                   │
 │              ├───────────────┬───────────────────────┘                   │
@@ -101,10 +101,10 @@ El concepto estético evoca la nobleza de los materiales naturales, la durabilid
 │  ┌────────────────────────────────────────────────────────────────────┐  │
 │  │                     COMPONENTES REUTILIZABLES                      │  │
 │  │                                                                    │  │
-│  │  [ Header.astro ]         [ Hero.astro ]        [ ProductGrid.astro]│  │
+│  │  [ Header.astro ]         [ Hero.astro ]      [ ProductGrid.astro ]│  │
 │  │         │                       │                       │          │  │
 │  │         ▼                       ▼                       ▼          │  │
-│  │  [ About.astro ]          [ Gallery.astro ]     [ ProductCard.astro│  │
+│  │  [ About.astro ]          [ Gallery.astro ]  [ ProductCard.astro ] │  │
 │  │         │                       │                       │          │  │
 │  │         ▼                       ▼                       ▼          │  │
 │  │  [ Testimonials.astro ]   [ Contact.astro ]     [ Footer.astro ]   │  │
@@ -116,7 +116,7 @@ El concepto estético evoca la nobleza de los materiales naturales, la durabilid
 │                                      ▼                                   │
 │  ┌────────────────────────────────────────────────────────────────────┐  │
 │  │                     DATA & UTILITIES LAYER                         │  │
-│  │               • src/data/products.js (Catálogo & WhatsApp)          │  │
+│  │               • src/data/products.js (Catálogo & WhatsApp)         │  │
 │  │               • src/styles/global.css (Tailwind CSS v4 Theme)      │  │
 │  └────────────────────────────────────────────────────────────────────┘  │
 └──────────────────────────────────────┬───────────────────────────────────┘
@@ -216,7 +216,7 @@ Para maximizar la tasa de conversión, el sitio no implementa pasarelas de pago 
                                     ▼
 ┌──────────────────────────────────────────────────────────────────────────┐
 │              ATENCIÓN PERSONALIZADA DIRECTA CON EL ARTESANO              │
-│       • Fotos adicionales  • Medidas a gusto  • Coordinación de envío     │
+│       • Fotos adicionales  • Medidas a gusto  • Coordinación de envío    │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
