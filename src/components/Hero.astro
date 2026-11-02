@@ -21,18 +21,10 @@ const whatsappUrl = getGeneralWhatsAppUrl();
   .animate-float { animation: float 6s ease-in-out infinite; }
   .animate-pan { animation: pan 20s ease-in-out infinite; }
 
-  /* EFECTO DE DESLIZAMIENTO Y FUNDIDO (Se mantiene igual) */
+  /* EFECTO DE DESLIZAMIENTO Y FUNDIDO */
   @keyframes slideUpFade {
-    0% {
-      opacity: 0;
-      transform: translateY(40px);
-      filter: blur(4px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
+    0% { opacity: 0; transform: translateY(40px); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
   }
 
   .animate-text-1 {
@@ -47,14 +39,13 @@ const whatsappUrl = getGeneralWhatsAppUrl();
     opacity: 0;
   }
 
-  /* NUEVO: Color y textura de cuero para el texto */
+  /* Color de cuero para el texto */
   .text-leather-effect {
-    color: #5C3A21; /* Color base de cuero */
-    /* Sombra suave para simular volumen */
+    color: #5C3A21;
     text-shadow: 
-      1px 1px 0px rgba(255, 255, 255, 0.4), /* Brillo superior */
-      -1px -1px 0px rgba(0, 0, 0, 0.2),   /* Sombra inferior */
-      2px 2px 4px rgba(0, 0, 0, 0.1);      /* Sombra proyectada */
+      1px 1px 0px rgba(255, 255, 255, 0.4),
+      -1px -1px 0px rgba(0, 0, 0, 0.2),
+      2px 2px 4px rgba(0, 0, 0, 0.1);
   }
 </style>
 
@@ -64,15 +55,18 @@ const whatsappUrl = getGeneralWhatsAppUrl();
       
       <!-- Columna Izquierda -->
       <div class="lg:col-span-6 flex flex-col justify-center space-y-6">
-        <div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#76513B]">
+        
+        <!-- BADGES / TEXTO SUPERIOR CORREGIDO PARA MÓVIL -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-[#76513B]">
           <span>Marroquinería Artesanal</span>
-          <span aria-hidden="true">·</span>
+          <!-- El punto solo se muestra en pantallas medianas en adelante -->
+          <span class="hidden sm:inline" aria-hidden="true">·</span>
           <span>Chile</span>
-          <span aria-hidden="true">·</span>
+          <span class="hidden sm:inline" aria-hidden="true">·</span>
           <span>100% Cuero Genuino</span>
         </div>
 
-        <!-- TÍTULO CON COLOR DE CUERO Y EFECTO DE DESLIZAMIENTO -->
+        <!-- TÍTULO -->
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-wide leading-[1.3] text-leather-effect" style="font-family: 'Sancreek', serif;">
           <span class="animate-text-1">Tradición y estilo</span>
           <span class="animate-text-2">en cada pieza</span>

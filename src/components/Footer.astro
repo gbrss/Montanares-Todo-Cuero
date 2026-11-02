@@ -11,14 +11,18 @@ const currentYear = new Date().getFullYear();
       
       <!-- Brand Info -->
       <div class="md:col-span-5 space-y-4">
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-[#76513B] flex items-center justify-center text-[#D9C6A5] font-serif font-bold text-base">
-            M
-          </div>
-          <span class="font-serif text-xl font-bold tracking-tight text-[#F7F2E9]">
-            Montanares Todo Cuero
-          </span>
-        </div>
+        <a href="#inicio" class="flex items-center gap-2 group w-fit" aria-label="Montanares Todo Cuero - Inicio">
+          
+          <!-- Logo con Sombra Blanca Intensificada (Normal y Hover) -->
+          <img 
+            src="/images/logo.png" 
+            alt="Montanares Todo Cuero" 
+            class="h-18 w-auto object-contain transition-all duration-300 
+                   [filter:brightness(1.25)_drop-shadow(0_0_12px_rgba(247,242,233,0.6))] 
+                   group-hover:[filter:brightness(1.4)_drop-shadow(0_0_25px_rgba(247,242,233,1))]"
+          />
+          
+        </a>
 
         <p class="text-xs sm:text-sm text-[#F7F2E9]/75 max-w-sm leading-relaxed">
           Artesanía y tradición en marroquinería de cuero genuino. Productos hechos con dedicación para acompañarte toda la vida.
